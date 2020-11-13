@@ -39,6 +39,7 @@ install:
   - "python setup.py build"
   - "python setup.py bdist_wheel"
   - "pip install --pre --no-index --find-links dist/ pyFAI"
+  - "pip install PyQt5"
 
 # command to run tests
 script:
