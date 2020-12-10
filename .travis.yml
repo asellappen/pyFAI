@@ -2,10 +2,9 @@ os: linux
 arch:
   - amd64
   - ppc64le
-dist: xenial
+dist: boinic
 language: python
 python:
-  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
@@ -34,9 +33,9 @@ install:
   - "pip install --upgrade numpy"
   - "pip install --upgrade cython mako pybind11"
   - "pip install --upgrade h5py "
-  - if [ "${TRAVIS_CPU_ARCH}" == "ppc64le" ]; then
-        sudo apt-get install qt5-default;
-    fi
+ # - if [ "${TRAVIS_CPU_ARCH}" == "ppc64le" ]; then
+ #       sudo apt-get install qt5-default;
+ #   fi
   - "pip install PyQt5"
   - "pip install --upgrade -r ci/requirements_travis.txt"
   - "python ci/info_platform.py"
