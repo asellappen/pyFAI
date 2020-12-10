@@ -26,7 +26,9 @@ addons:
 before_install:
   - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'linux' ]; then . ./ci/before_install-linux.sh; fi"
 #  - "if [ ${TRAVIS_OS_NAME:-'linux'} = 'osx' ]; then . ./ci/travis/before_install-osx.sh; fi"
-
+  -  if [ "${TRAVIS_CPU_ARCH}" == "ppc64le" ]; then
+        export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/openblas/lib/;
+     fi
 install:
   - "python ci/info_platform.py"
   - "pip install --upgrade pip setuptools wheel"
